@@ -9,6 +9,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
+
+
 import AdbIcon from '@mui/icons-material/Adb';
 
 const pages =[
@@ -33,6 +35,8 @@ const pages =[
 import { NavLink } from "react-router-dom";
 import { useState } from 'react';
 
+import "./style.scss"
+
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
 
@@ -47,26 +51,22 @@ const Header = () => {
 
 
   return (
-    <AppBar position="static">
+        <AppBar position="static" style={{ background: "orange" }} elevation={1}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
+          
             variant="h6"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
             }}
           >
-            LOGO
+              <NavLink to="/"><img src="/logo.svg" alt="logo" /></NavLink>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -76,7 +76,6 @@ const Header = () => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
             >
               <MenuIcon />
             </IconButton>
@@ -107,12 +106,10 @@ const Header = () => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -120,12 +117,12 @@ const Header = () => {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
             }}
           >
-            LOGO
+              <NavLink to="/"><img src="/logo.svg" alt="logo" /></NavLink>
           </Typography>
+
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
