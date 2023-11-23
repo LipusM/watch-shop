@@ -63,12 +63,12 @@ const Header = () => {
             }}
           >
             <NavLink to="/">
-              <img src="/logo.svg" alt="logo" />
+              <img src="/logo.svg" alt="logo" style={{height: "2.5rem", maxHeight: "2.5rem"}}/>
             </NavLink>
           </Typography>
 
 {/* Responzivní menu */}
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none", } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -104,8 +104,9 @@ const Header = () => {
               {pages.map((page) => (
                 <MenuItem key={page.page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
-                    <NavLink key={page.page} onClick={handleCloseNavMenu} to={page.url}>{page.page}</NavLink>
-                    {/* {page.page} */}
+                    <NavLink  key={page.page} onClick={handleCloseNavMenu} to={page.url} 
+                    style={{textDecoration: "none", color:"black"}}>{page.page}
+                    </NavLink>
                   </Typography>
                 </MenuItem>
               ))}
@@ -126,18 +127,21 @@ const Header = () => {
             }}
           >
             <NavLink to="/">
-              <img src="/logo.svg" alt="logo" />
+              <img src="/logo.svg" alt="logo" style={{height: "2.5rem"}}/>
             </NavLink>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
+                /* component="a" */
+                /* to={page.url} */
                 key={page.page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                /* sx={{ my: 2, color: "black", display: "block", textDecoration: "none"}} */
               >
-                <NavLink to={page.url}>{page.page}</NavLink>
+                <NavLink to={page.url} style={{textDecoration: "none", color:"black"}}>{page.page}</NavLink>
+                {/* {page.page} */}
               </Button>
             ))}
           </Box>
