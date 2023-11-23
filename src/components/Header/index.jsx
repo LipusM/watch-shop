@@ -112,7 +112,6 @@ const Header = () => {
               ))}
             </Menu>
           </Box>
-          {/* Responzivní menu */}
 
           <Typography
             variant="h5"
@@ -130,18 +129,16 @@ const Header = () => {
               <img src="/logo.svg" alt="logo" style={{height: "2.5rem"}}/>
             </NavLink>
           </Typography>
+          {/* Responzivní menu */}
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
-                /* component="a" */
-                /* to={page.url} */
                 key={page.page}
                 onClick={handleCloseNavMenu}
                 /* sx={{ my: 2, color: "black", display: "block", textDecoration: "none"}} */
               >
                 <NavLink to={page.url} style={{textDecoration: "none", color:"black"}}>{page.page}</NavLink>
-                {/* {page.page} */}
               </Button>
             ))}
           </Box>
