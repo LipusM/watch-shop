@@ -48,7 +48,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static" style={{ background: "orange" }} elevation={1}>
+    <AppBar position="static" style={{ background: "orange", }} elevation={1}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
