@@ -4,13 +4,16 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
 
-import AdbIcon from "@mui/icons-material/Adb";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const pages = [
   {
@@ -37,22 +40,20 @@ import { useState } from "react";
 import "./style.scss";
 
 const Header = () => {
-  const [anchorElNav, setAnchorElNav] = useState(null);
+  /* Pro responzivní menu */
+  const [openDrawer, setOpenDrawer] = useState(false);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+  const openCloseResponsiveMenu = () => {
+    setOpenDrawer(!openDrawer);
   };
 
   return (
-    <AppBar position="static" style={{ background: "orange", }} elevation={1}>
+    <AppBar position="static" style={{ background: "#fff0d4" }} elevation={1}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+          {/* Obrázek v klasické menu */}
           <Typography
-            variant="h6"
+            /* variant="h5" */
             noWrap
             sx={{
               mr: 2,
@@ -63,56 +64,47 @@ const Header = () => {
             }}
           >
             <NavLink to="/">
-              <img src="/logo.svg" alt="logo" style={{height: "2.5rem", maxHeight: "2.5rem"}}/>
+              <img
+                src="/logo.svg"
+                alt="logo"
+                style={{ height: "2.5rem", maxHeight: "2.5rem" }}
+              />
             </NavLink>
           </Typography>
+          {/* Obrázek v klasické menu */}
 
-{/* Responzivní menu */}
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none", } }}>
+          {/* Responzivní menu */}
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+              onClick={openCloseResponsiveMenu}
             >
-              {/* <div id="nav-btn" className="first-section">
-                <div className="nav-part"></div>
-                <div className="nav-part"></div>
-                <div className="nav-part"></div>
-              </div> */}
               <MenuIcon />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none",},
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page.page} onClick={handleCloseNavMenu} sx={{backgroundColor: "blue", margin: "-10px 0px",}}>
-                  <Typography textAlign="center">
-                    <NavLink  key={page.page} onClick={handleCloseNavMenu} to={page.url} 
-                    style={{textDecoration: "none", color:"black"}}>{page.page}
-                    </NavLink>
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+            <Drawer open={openDrawer} onClick={openCloseResponsiveMenu}>
+              <List>
+                {pages.map((page) => (
+                  <ListItemButton
+                    key={page.url}
+                    onClick={openCloseResponsiveMenu}
+                  >
+                    <ListItemIcon key={page.url}>
+                      <NavLink
+                        key={page.url}
+                        to={page.url}
+                        style={{ textDecoration: "none", color: "black" }}
+                      >
+                        {page.page}
+                      </NavLink>
+                    </ListItemIcon>
+                  </ListItemButton>
+                ))}
+              </List>
+            </Drawer>
           </Box>
-
           <Typography
             variant="h5"
             noWrap
@@ -126,22 +118,35 @@ const Header = () => {
             }}
           >
             <NavLink to="/">
-              <img src="/logo.svg" alt="logo" style={{height: "2.5rem"}}/>
+              <img src="/logo.svg" alt="logo" style={{ height: "2.5rem" }} />
             </NavLink>
           </Typography>
           {/* Responzivní menu */}
 
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          {/* Klasické menu */}
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex", } }}>
             {pages.map((page) => (
-              <Button
-                key={page.page}
-                onClick={handleCloseNavMenu}
-                /* sx={{ my: 2, color: "black", display: "block", textDecoration: "none"}} */
-              >
-                <NavLink to={page.url} style={{textDecoration: "none", color:"black"}}>{page.page}</NavLink>
+              <Button key={page.page} 
+              sx={{"&:hover":{bgcolor: "transparent"}, color: "transparent" }}>
+                <NavLink
+                  to={page.url}
+                  style={{ textDecoration: "none", color: "black", }}
+                >
+                  {page.page}
+                </NavLink>
               </Button>
             ))}
           </Box>
+          {/* Klasické menu */}
+
+          {/* Odkaz na pravé straně AppBaru */}
+          <Typography>
+            <NavLink to="/shopping-list">
+            {/* <ShoppingCartIcon /> */}
+              <img src="/shopping-cart.gif" alt="logo" style={{ height: "2rem" }} />
+            </NavLink>
+          </Typography>
+          {/* Odkaz na pravé straně AppBaru */}
         </Toolbar>
       </Container>
     </AppBar>

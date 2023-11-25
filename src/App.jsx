@@ -3,7 +3,7 @@ import './app.scss'
 import { Outlet } from 'react-router-dom'
 
 import Header from './components/Header'
-import Header2 from './components/Header2'
+import Header2 from './components/Header'
 
 function App() {
 
