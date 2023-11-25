@@ -124,12 +124,12 @@ const Header2 = () => {
           {/* Responzivní menu */}
 
           {/* Klasické menu */}
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex", } }}>
             {pages.map((page) => (
-              <Button key={page.page}>
+              <Button key={page.page} sx={{"&:hover":{bgcolor: "transparent"} }}>
                 <NavLink
                   to={page.url}
-                  style={{ textDecoration: "none", color: "black" }}
+                  style={{ textDecoration: "none", color: "black", }}
                 >
                   {page.page}
                 </NavLink>
