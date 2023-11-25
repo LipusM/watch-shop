@@ -13,6 +13,7 @@ import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const pages = [
   {
@@ -39,13 +40,12 @@ import { useState } from "react";
 import "./style.scss";
 
 const Header2 = () => {
-  
   /* Pro responzivní menu */
-  const [openDrawer, setOpenDrawer] = useState(false)
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   const openCloseResponsiveMenu = () => {
-    setOpenDrawer(!openDrawer)
-  }
+    setOpenDrawer(!openDrawer);
+  };
 
   return (
     <AppBar position="static" style={{ background: "orange" }} elevation={1}>
@@ -84,19 +84,24 @@ const Header2 = () => {
             >
               <MenuIcon />
             </IconButton>
-            <Drawer open={openDrawer}
-            onClick={openCloseResponsiveMenu}
-            >
+            <Drawer open={openDrawer} onClick={openCloseResponsiveMenu}>
               <List>
-                {pages.map(page => 
-                  <ListItemButton key={page.url} onClick={openCloseResponsiveMenu}>
+                {pages.map((page) => (
+                  <ListItemButton
+                    key={page.url}
+                    onClick={openCloseResponsiveMenu}
+                  >
                     <ListItemIcon key={page.url}>
-                    <NavLink  key={page.url} to={page.url} 
-                    style={{textDecoration: "none", color:"black"}}>{page.page}
-                    </NavLink>
+                      <NavLink
+                        key={page.url}
+                        to={page.url}
+                        style={{ textDecoration: "none", color: "black" }}
+                      >
+                        {page.page}
+                      </NavLink>
                     </ListItemIcon>
                   </ListItemButton>
-                  )}
+                ))}
               </List>
             </Drawer>
           </Box>
@@ -118,12 +123,10 @@ const Header2 = () => {
           </Typography>
           {/* Responzivní menu */}
 
-            {/* Klasické menu */}
+          {/* Klasické menu */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Button
-                key={page.page}
-              >
+              <Button key={page.page}>
                 <NavLink
                   to={page.url}
                   style={{ textDecoration: "none", color: "black" }}
@@ -135,6 +138,14 @@ const Header2 = () => {
           </Box>
           {/* Klasické menu */}
 
+          {/* Odkaz na pravé straně AppBaru */}
+          <Typography variant="h5">
+            <NavLink to="/shopping-list">
+            <ShoppingCartIcon />
+              {/* <img src="/logo.svg" alt="logo" style={{ height: "2.5rem" }} /> */}
+            </NavLink>
+          </Typography>
+          {/* Odkaz na pravé straně AppBaru */}
         </Toolbar>
       </Container>
     </AppBar>

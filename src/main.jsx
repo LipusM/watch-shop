@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage"
 import Watches from "./pages/Watches"
 import AboutUs from "./pages/AboutUs"
 import Contact from "./pages/Contact"
+import ShoppingList from "./pages/ShoppingList"
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact/>,
+      },
+      {
+        path: "/shopping-list",
+        element: <ShoppingList />
       }
     ] 
   }
