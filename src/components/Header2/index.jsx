@@ -126,7 +126,8 @@ const Header2 = () => {
           {/* Klasické menu */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex", } }}>
             {pages.map((page) => (
-              <Button key={page.page} sx={{"&:hover":{bgcolor: "transparent"} }}>
+              <Button key={page.page} 
+              sx={{"&:hover":{bgcolor: "transparent"}, color: "transparent" }}>
                 <NavLink
                   to={page.url}
                   style={{ textDecoration: "none", color: "black", }}
