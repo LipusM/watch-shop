@@ -48,12 +48,12 @@ const Header2 = () => {
   };
 
   return (
-    <AppBar position="static" style={{ background: "orange" }} elevation={1}>
+    <AppBar position="static" style={{ background: "#fff0d4" }} elevation={1}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Obrázek v klasické menu */}
           <Typography
-            variant="h6"
+            /* variant="h5" */
             noWrap
             sx={{
               mr: 2,
@@ -139,10 +139,10 @@ const Header2 = () => {
           {/* Klasické menu */}
 
           {/* Odkaz na pravé straně AppBaru */}
-          <Typography variant="h5">
+          <Typography>
             <NavLink to="/shopping-list">
-            <ShoppingCartIcon />
-              {/* <img src="/logo.svg" alt="logo" style={{ height: "2.5rem" }} /> */}
+            {/* <ShoppingCartIcon /> */}
+              <img src="/shopping-cart.gif" alt="logo" style={{ height: "2rem" }} />
             </NavLink>
           </Typography>
           {/* Odkaz na pravé straně AppBaru */}
