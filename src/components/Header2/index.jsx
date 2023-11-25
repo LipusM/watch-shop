@@ -12,8 +12,8 @@ import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
-
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
 
 const pages = [
   {
@@ -40,6 +40,13 @@ import { useState } from "react";
 import "./style.scss";
 
 const Header2 = () => {
+  /* Pro klasické menu */
+  const [tabValue, setTabValue] = useState("/")
+
+  const activeTab = (as) => {
+    setTabValue(as)
+  }
+
   /* Pro responzivní menu */
   const [openDrawer, setOpenDrawer] = useState(false);
 
@@ -124,19 +131,22 @@ const Header2 = () => {
           {/* Responzivní menu */}
 
           {/* Klasické menu */}
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex", } }}>
-            {pages.map((page) => (
-              <Button key={page.page} 
-              sx={{"&:hover":{bgcolor: "transparent"}, color: "transparent" }}>
-                <NavLink
+          <Tabs sx={{ flexGrow: 1, display: { xs: "none", md: "flex", } }} value={tabValue} 
+          onChange={(e) => activeTab(e.target.value)} indicatorColor="black">
+            {pages.map((page, index) => (
+              <Tab key={page.page}  
+              value={page.url}
+              label={page.page}
+              >
+                {/* <NavLink
                   to={page.url}
                   style={{ textDecoration: "none", color: "black", }}
-                >
+                > */}
                   {page.page}
-                </NavLink>
-              </Button>
+                {/* </NavLink> */}
+              </Tab>
             ))}
-          </Box>
+          </Tabs>
           {/* Klasické menu */}
 
           {/* Odkaz na pravé straně AppBaru */}
