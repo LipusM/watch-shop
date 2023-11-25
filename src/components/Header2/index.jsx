@@ -4,19 +4,15 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
 
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 
-/* import AdbIcon from "@mui/icons-material/Adb"; */
 
 const pages = [
   {
@@ -43,27 +39,19 @@ import { useState } from "react";
 import "./style.scss";
 
 const Header2 = () => {
-  const [anchorElNav, setAnchorElNav] = useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
+  
   /* Pro responzivní menu */
   const [openDrawer, setOpenDrawer] = useState(false)
 
-  const closeResponsiveMenu = () => {
-      setOpenDrawer(false)
+  const openCloseResponsiveMenu = () => {
+    setOpenDrawer(!openDrawer)
   }
 
   return (
     <AppBar position="static" style={{ background: "orange" }} elevation={1}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+          {/* Obrázek v klasické menu */}
           <Typography
             variant="h6"
             noWrap
@@ -83,6 +71,7 @@ const Header2 = () => {
               />
             </NavLink>
           </Typography>
+          {/* Obrázek v klasické menu */}
 
           {/* Responzivní menu */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -91,18 +80,17 @@ const Header2 = () => {
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              /* onClick={handleOpenNavMenu} */
-              onClick={() => setOpenDrawer(!openDrawer)}
+              onClick={openCloseResponsiveMenu}
             >
               <MenuIcon />
             </IconButton>
             <Drawer open={openDrawer}
-            onClose={closeResponsiveMenu}
+            onClick={openCloseResponsiveMenu}
             >
               <List>
                 {pages.map(page => 
-                  <ListItemButton onClick={closeResponsiveMenu}>
-                    <ListItemIcon>
+                  <ListItemButton key={page.url} onClick={openCloseResponsiveMenu}>
+                    <ListItemIcon key={page.url}>
                     <NavLink  key={page.url} to={page.url} 
                     style={{textDecoration: "none", color:"black"}}>{page.page}
                     </NavLink>
@@ -130,12 +118,11 @@ const Header2 = () => {
           </Typography>
           {/* Responzivní menu */}
 
+            {/* Klasické menu */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
                 key={page.page}
-                onClick={handleCloseNavMenu}
-                /* sx={{ my: 2, color: "black", display: "block", textDecoration: "none"}} */
               >
                 <NavLink
                   to={page.url}
@@ -146,6 +133,8 @@ const Header2 = () => {
               </Button>
             ))}
           </Box>
+          {/* Klasické menu */}
+
         </Toolbar>
       </Container>
     </AppBar>
