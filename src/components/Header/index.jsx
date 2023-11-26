@@ -94,6 +94,7 @@ const Header = () => {
                   <ListItemButton
                     key={page.url}
                     onClick={openCloseResponsiveMenu}
+                    sx={{"&:hover":{bgcolor: "transparent"}, color: "transparent" }}
                   >
                     <ListItemIcon key={page.url}>
                       <NavLink
