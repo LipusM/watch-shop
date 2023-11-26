@@ -13,13 +13,15 @@ import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 
+import classnames from "react"
+
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const pages = [
-  {
+  /* {
     page: "Home",
     url: "/",
-  },
+  }, */
   {
     page: "Watches",
     url: "/watches",
@@ -33,6 +35,11 @@ const pages = [
     url: "/contact",
   },
 ];
+
+/* Třída, která se použije do NavLink spolu s isActive */
+const classes = {
+  page: "page"
+}
 
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
@@ -121,13 +128,17 @@ const Header = () => {
           {/* Responzivní menu */}
 
           {/* Klasické menu */}
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex", } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex", } }} id="regular-menu">
             {pages.map((page) => (
               <Button key={page.page} 
               sx={{"&:hover":{bgcolor: "transparent"}, color: "transparent" }}>
                 <NavLink
                   to={page.url}
                   style={{ textDecoration: "none", color: "black", }}
+                  className={ ({isActive}) => [
+                    classes.page,
+                    isActive ? "active-page" : "",
+                  ].filter(Boolean).join(" ")}
                 >
                   {page.page}
                 </NavLink>
@@ -139,7 +150,6 @@ const Header = () => {
           {/* Odkaz na pravé straně AppBaru */}
           <Typography>
             <NavLink to="/shopping-list">
-            {/* <ShoppingCartIcon /> */}
               <img src="/shopping-cart.gif" alt="logo" style={{ height: "2rem" }} />
             </NavLink>
           </Typography>
