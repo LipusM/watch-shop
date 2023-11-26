@@ -89,7 +89,7 @@ const Header = () => {
               <MenuIcon/>
             </IconButton>
             <Drawer open={openDrawer} onClick={openCloseResponsiveMenu}>
-              <List>
+              <List id="mobile-menu">
                 {pages.map((page) => (
                   <ListItemButton
                     key={page.url}
@@ -101,6 +101,10 @@ const Header = () => {
                         key={page.url}
                         to={page.url}
                         style={{ textDecoration: "none", color: "black" }}
+                        className={ ({isActive}) => [
+                          classes.page,
+                          isActive ? "active-page" : "",
+                        ].filter(Boolean).join(" ")}
                       >
                         {page.page}
                       </NavLink>
