@@ -3,14 +3,13 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.scss'
 
-import Header from './components/Header'
 import HomePage from "./pages/HomePage"
 import Watches from "./pages/Watches"
 import AboutUs from "./pages/AboutUs"
 import Contact from "./pages/Contact"
 import ShoppingList from "./pages/ShoppingList"
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, useLocation } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
