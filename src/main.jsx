@@ -9,7 +9,7 @@ import AboutUs from "./pages/AboutUs"
 import Contact from "./pages/Contact"
 import ShoppingList from "./pages/ShoppingList"
 
-import { createBrowserRouter, RouterProvider, useLocation } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
