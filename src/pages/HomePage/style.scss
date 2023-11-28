@@ -1,0 +1,33 @@
+#home-page{
+
+    background-image: url("../../images/HomePage/background-watch.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    height: 100vh;
+    height: 100svh;
+    
+
+    button{
+        height: max-content;
+        position: fixed;
+        top: 50%;
+        bottom: 50%;
+        left: 50%;
+        right: 50%;
+
+        border: solid 2px white;
+        background-color: rgba(255, 255, 255, 0.2);;
+        padding: 20px;
+
+        border-radius: 5px;
+
+        a{
+            text-decoration: none;
+            color: white;
+            font-size: 2rem;
+        }
+    }
+}

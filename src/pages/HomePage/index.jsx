@@ -1,16 +1,17 @@
+import "./style.scss";
 
-import "./style.scss"
+import { NavLink } from "react-router-dom";
 
 const HomePage = () => {
+  return (
+    <main id="home-page">
+      <button>
+        <b>
+          <NavLink to="/watches">Discover</NavLink>
+        </b>
+      </button>
+    </main>
+  );
+};
 
-    return (
-       
-        <main>
-        <h1>HomePage</h1>
-        fasdfasdfasdfasdf
-        </main>
-     
-    )
-}
-
-export default HomePage
+export default HomePage;

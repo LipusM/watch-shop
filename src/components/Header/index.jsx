@@ -13,9 +13,6 @@ import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 
-import classnames from "react"
-
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const pages = [
   /* {
@@ -55,7 +52,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static" style={{ background: "#fff0d4" }} elevation={1}>
+    <AppBar position="static" style={{ background: "#fff" }} elevation={0} id="the-header">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Obrázek v klasické menu */}
