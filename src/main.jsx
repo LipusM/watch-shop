@@ -11,6 +11,7 @@ import ShoppingList from "./pages/ShoppingList"
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
