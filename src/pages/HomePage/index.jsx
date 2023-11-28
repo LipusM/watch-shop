@@ -8,7 +8,7 @@ const HomePage = () => {
     <main id="home-page">
       <motion.button
       whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.6)"}}
-      whileTap={{border: "4px"}}
+      whileTap={{border: "none"}}
       transition={{duration: 0.5}}
       >
         <b>
