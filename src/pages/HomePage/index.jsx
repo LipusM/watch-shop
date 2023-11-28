@@ -1,15 +1,20 @@
 import "./style.scss";
 
 import { NavLink } from "react-router-dom";
+import {motion} from "framer-motion"
 
 const HomePage = () => {
   return (
     <main id="home-page">
-      <button>
+      <motion.button
+      whileHover={{opacity: 0.8}}
+      whileTap={{scale: 0.9}}
+      transition={{duration: 0.5}}
+      >
         <b>
           <NavLink to="/watches">Discover</NavLink>
         </b>
-      </button>
+      </motion.button>
     </main>
   );
 };
