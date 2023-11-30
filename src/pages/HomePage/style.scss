@@ -9,30 +9,22 @@
     height: 100vh;
     height: 100svh;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    button {
-        height: max-content;
-        position: fixed;
-        top: 60%;
-        left: 50%;
+    a {
 
-        transform: translate(-50%, -50%);
-        transform-origin: center center;
-
-        /* transform: none;
-        transform-origin: center center; */
-
-        border: solid 2px white;
-        background-color: rgba(255, 255, 255, 0.2);
-        ;
-        padding: 20px;
-
-        border-radius: 5px;
-
-        a {
-            text-decoration: none;
+        button {
             color: white;
             font-size: 2rem;
+
+            height: max-content;
+
+            border: solid 2px white;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 5px;
         }
     }
 }
